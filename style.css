@@ -1,0 +1,301 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: linear-gradient(45deg, #e29ed0, #356e2e);;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+  
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /*  MOON (Optional) */
+  .moon {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at 30px 30px,
+      #fff 30%,
+      #e2e2e2 60%,
+      #c4c4c4 100%
+    );
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    z-index: 0; 
+  }
+  
+  /* HEADER & NAV*/
+  header {
+    width: 100%;
+    background: linear-gradient(45deg, #e29ed0, #356e2e);
+    padding: 15px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 2; 
+    text-align: center;
+  }
+  
+  /* Header Title */
+  header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  
+  /* Navigation */
+  nav {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: inline-flex;
+    gap: 30px;
+    padding: 0;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 6px 0;
+    transition: color 0.3s, border-bottom 0.3s;
+  }
+  
+  nav ul li a:hover {
+    color: #f78a55;  
+  }
+  
+  /* MAIN*/
+  main {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+  }
+  
+  /* An animated gradient for the entire card container */
+  .card {
+    background: linear-gradient(45deg, #e29ed0, #356e2e);
+    background-size: 400% 400%;
+    animation: cardGradient 10s ease infinite;
+  
+    border-radius: 16px;
+    padding: 24px;
+    width: 320px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  @keyframes cardGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Spacing between elements in .card */
+  .card > *:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  
+  .card form {
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    overflow: hidden;
+  }
+  
+  /* Animated gradient input */
+  .card form input[type="text"] {
+    flex: 1;
+    padding: 10px 16px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: #fff;
+  
+    background: linear-gradient(45deg, #84fab0, #8fd3f4);
+    background-size: 400% 400%;
+    animation: inputGradient 8s ease infinite;
+  }
+  
+  @keyframes inputGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .card form button {
+    border: none;
+    background-color: transparent;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: #555;
+  }
+  
+  .card form button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Shown after fetching REST Countries API results */
+  .country-details {
+    text-align: left; 
+    display: none;
+  }
+  
+  .flag-figure {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .flag-figure img {
+    width: 80px;
+    border: 2px solid #fff;
+  }
+  
+  .info {
+    margin-bottom: 10px;
+  }
+  
+  .info h2 {
+    margin-bottom: 6px;
+    font-size: 1.25rem;
+    color: #fff;
+  }
+  
+  #moreDetailsBtn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  #moreDetailsBtn:hover {
+    background-color: #555;
+  }
+
+  /* Displayed after “More Details” is clicked */
+  .weather-details {
+    display: none; 
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* City Name & Flag */
+  .weather-details .name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+  
+  /* Temperature */
+  .temperature img {
+    width: 60px;
+    margin-bottom: 10px;
+  }
+  
+  .temperature figcaption {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  
+  .description {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Clouds, Humidity, Pressure */
+  .weather-details ul {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  .weather-details li {
+    background-color: #f78a55;
+    border-radius: 10px;
+    padding: 12px 8px;
+    font-weight: 600;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70px;
+    font-size: 0.85rem;
+  }
+  
+  .weather-details li i {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+  }
+  
+  /* ============================= FOOTER ============================= */
+  footer {
+    padding: 15px 0;
+    width: 100%;
+    background: linear-gradient(45deg, #e29ed0, #356e2e);
+    padding: 15px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 2; 
+    text-align: center;
+  }
+  main.error {
+    animation: shake 0.3s linear 1;
+  }
+  @keyframes shake {
+    0%   { transform: translate(10px, 5px); }
+    25%  { transform: translate(-5px, 0); }
+    50%  { transform: translate(8px, 2px); }
+    75%  { transform: translate(-2px, 5px); }
+    100% { transform: translate(0, 0); }
+  }
+  
+  @media (max-width: 600px) {
+    header {
+      padding: 10px 0;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+    nav ul {
+      gap: 15px;
+    }
+    .card {
+      width: 90%;
+      margin: auto;
+    }
+  }
+  

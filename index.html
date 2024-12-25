@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nation zoom</title>
+
+  <!-- Font Awesome CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="moon"></div>
+
+  <!-- Header -->
+  <header>
+    <h1>Nation zoom</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Countries</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="card">
+      <!-- Country Search Form -->
+      <form>
+        <input 
+          type="text" 
+          id="searchCountry" 
+          autocomplete="off" 
+          placeholder="Type a country..."
+        />
+        <button type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+
+      <!-- Country Details -->
+      <section class="country-details" style="display: none;">
+        <figure class="flag-figure">
+          <img id="countryFlag" src="" alt="Country Flag" />
+        </figure>
+        <div class="info">
+          <h2 id="countryName"></h2>
+          <p><strong>Capital:</strong> <span id="countryCapital"></span></p>
+          <p><strong>Region:</strong> <span id="countryRegion"></span></p>
+          <p><strong>Population:</strong> <span id="countryPopulation"></span></p>
+        </div>
+        <!-- Button to fetch weather -->
+        <button id="moreDetailsBtn" style="margin-top: 10px;">
+          More Details (Weather)
+        </button>
+      </section>
+
+      <!-- Weather Details (initially hidden) -->
+      <section class="weather-details" style="display: none;">
+        <figure class="name">
+          <figcaption id="cityCaption"></figcaption>
+          <img id="weatherFlag" src="" alt="Flag" />
+        </figure>
+        <figure class="temperature">
+          <img id="weatherIcon" src="" alt="Weather Icon" />
+          <figcaption>
+            <span id="weatherTemp"></span>
+            <sup>°C</sup>
+          </figcaption>
+        </figure>
+        <p class="description" id="weatherDesc"></p>
+        <ul>
+          <li>
+            <span>clouds</span>
+            <i class="fa-solid fa-cloud"></i>
+            <span id="clouds"></span>%
+          </li>
+          <li>
+            <span>humidity</span>
+            <i class="fa-solid fa-droplet"></i>
+            <span id="humidity"></span>%
+          </li>
+          <li>
+            <span>pressure</span>
+            <i class="fa-solid fa-gauge"></i>
+            <span id="pressure"></span>hPa
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; Nation zoom. Mis455. All rights reserved 2024.</p>
+  </footer>
+
+  <!-- Script File -->
+  <script src="script.js"></script>
+</body>
+</html>
